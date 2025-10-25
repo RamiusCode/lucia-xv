@@ -1,0 +1,163 @@
+---
+// CodigoVestimenta.astro
+---
+<section class="py-4 px-4">
+  <div class="max-w-xl mx-auto text-center">
+    
+    <!-- 🌸 SEPARADOR SUPERIOR -->
+    <div class="flex justify-center mb-6" id="separador-superior">
+      <img
+        src="/imagenes/Separador.png"
+        alt="Separador decorativo"
+        class="w-40 md:w-48 lg:w-56 h-auto object-contain opacity-80"
+      />
+    </div>
+
+    <!-- TÍTULO CÓDIGO DE VESTIMENTA -->
+    <div class="mb-4" id="titulo-vestimenta">
+      <h2
+        class="font-charm text-2xl md:text-3xl text-[#a27735] font-bold tracking-wide"
+      >
+        CÓDIGO DE VESTIMENTA
+      </h2>
+    </div>
+
+    <!-- 👔 IMAGEN VESTIMENTA -->
+    <div class="flex justify-center mb-4" id="imagen-vestimenta">
+      <img
+        src="/imagenes/Vestimenta.png"
+        alt="Código de vestimenta"
+        class="w-28 h-auto md:w-72 lg:w-80 object-contain"
+      />
+    </div>
+
+    <!-- DESCRIPCIÓN -->
+    <div class="mb-3" id="descripcion-vestimenta">
+      <p
+        class="font-charm text-2xl md:text-3xl text-[#a27735] font-bold leading-relaxed"
+      >
+        Guapos y Divinas
+      </p>
+    </div>
+
+    <!-- NOTA IMPORTANTE -->
+    <div class="mb-2" id="nota-vestimenta">
+      <p
+        class="font-charm text-base md:text-lg text-[#95303a] leading-relaxed"
+      >
+        Color rojo reservado para la quinceañera
+      </p>
+    </div>
+
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  
+  gsap.registerPlugin(ScrollTrigger);
+  
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      // Estado inicial
+      gsap.set("#separador-superior", { opacity: 0, scale: 0.8, y: -20 });
+      gsap.set("#titulo-vestimenta", { opacity: 0, y: 20 });
+      gsap.set("#imagen-vestimenta", { opacity: 0, scale: 0.8 });
+      gsap.set("#descripcion-vestimenta", { opacity: 0, y: 20 });
+      gsap.set("#nota-vestimenta", { opacity: 0, y: 20 });
+      
+      // Animación separador superior
+      gsap.to("#separador-superior", {
+        opacity: 0.8,
+        scale: 1,
+        y: 0,
+        duration: 1,
+        ease: "back.out(1.5)",
+        scrollTrigger: {
+          trigger: "#separador-superior",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#separador-superior", { opacity: 0, scale: 0.8, y: -20 });
+          },
+        },
+      });
+      
+      // Animación título
+      gsap.to("#titulo-vestimenta", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#titulo-vestimenta",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#titulo-vestimenta", { opacity: 0, y: 20 });
+          },
+        },
+      });
+      
+      // Animación imagen
+      gsap.to("#imagen-vestimenta", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        delay: 0.4,
+        ease: "back.out(1.5)",
+        scrollTrigger: {
+          trigger: "#imagen-vestimenta",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#imagen-vestimenta", { opacity: 0, scale: 0.8 });
+          },
+        },
+      });
+      
+      // Animación descripción
+      gsap.to("#descripcion-vestimenta", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#descripcion-vestimenta",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#descripcion-vestimenta", { opacity: 0, y: 20 });
+          },
+        },
+      });
+      
+      // Animación nota
+      gsap.to("#nota-vestimenta", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.8,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#nota-vestimenta",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#nota-vestimenta", { opacity: 0, y: 20 });
+          },
+        },
+      });
+      
+      console.log("👔 Sección de Código de Vestimenta inicializada");
+    });
+  }
+</script>

@@ -1,0 +1,131 @@
+---
+// Direccion.astro
+---
+<section class="py-4 px-4">
+  <div class="max-w-xl mx-auto text-center">
+    <!-- 🏛️ ICONO DIRECCIÓN -->
+    <div class="flex justify-center mb-4" id="icono-direccion">
+      <img
+        src="/imagenes/IconoDireccion.png"
+        alt="Icono de dirección"
+        class="w-24 h-24 md:w-28 md:h-28 lg:w-32 lg:h-32 object-contain"
+      />
+    </div>
+    <!-- TÍTULO DIRECCIÓN -->
+    <div class="mb-2" id="titulo-direccion">
+      <h2
+        class="font-charm text-2xl md:text-3xl text-[#a27735] font-bold tracking-wide"
+      >
+        DIRECCIÓN
+      </h2>
+    </div>
+    <!-- INFORMACIÓN DE UBICACIÓN -->
+    <div class="mb-2" id="info-direccion">
+      <p
+        class="font-charm text-xl md:text-lg text-[#95303a] leading-relaxed mb-2"
+      >
+        Salón de Eventos La Estancia<br />
+        Calle Los Pinos #245<br />
+        Zona Central
+      </p>
+    </div>
+
+    <!-- BOTÓN VER UBICACIÓN -->
+    <div class="flex justify-center" id="boton-ubicacion">
+      <a
+        href="https://wa.me/59178762918"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <img
+          src="/imagenes/BotonUbicacion.png"
+          alt="Ver ubicación en el mapa"
+          class="w-48 md:w-56 lg:w-64 h-auto object-contain cursor-pointer transition-transform duration-300 hover:scale-105"
+        />
+      </a>
+    </div>
+
+  </div>
+</section>
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+  gsap.registerPlugin(ScrollTrigger);
+  if (typeof window !== "undefined") {
+    document.addEventListener("DOMContentLoaded", () => {
+      // Estado inicial
+      gsap.set("#icono-direccion", { opacity: 0, scale: 0.8 });
+      gsap.set("#titulo-direccion", { opacity: 0, y: 20 });
+      gsap.set("#info-direccion", { opacity: 0, y: 20 });
+      gsap.set("#boton-ubicacion", { opacity: 0, y: 20 });
+      // Animación icono
+      gsap.to("#icono-direccion", {
+        opacity: 1,
+        scale: 1,
+        duration: 1,
+        ease: "back.out(1.5)",
+        scrollTrigger: {
+          trigger: "#icono-direccion",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#icono-direccion", { opacity: 0, scale: 0.8 });
+          },
+        },
+      });
+      // Animación título
+      gsap.to("#titulo-direccion", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#titulo-direccion",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#titulo-direccion", { opacity: 0, y: 20 });
+          },
+        },
+      });
+      // Animación info dirección
+      gsap.to("#info-direccion", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.4,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#info-direccion",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#info-direccion", { opacity: 0, y: 20 });
+          },
+        },
+      });
+      // Animación botón
+      gsap.to("#boton-ubicacion", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.6,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#boton-ubicacion",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#boton-ubicacion", { opacity: 0, y: 20 });
+          },
+        },
+      });
+      console.log("📍 Sección de Dirección inicializada");
+    });
+  }
+</script>

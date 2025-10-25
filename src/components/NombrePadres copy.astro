@@ -1,0 +1,193 @@
+<!-- ---
+// Padres.astro
+---
+
+<section class="py-4 px-4">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="font-charm text-xl text-[#b8860b] font-bold mb-4" id="titulo-padres">
+      MIS PADRES
+    </h2>
+    <div class="space-y-2" id="nombres-padres">
+      <p class="font-charm text-lg text-[#4e684b]">Daniel Fernández Choque</p>
+      <p class="font-charm text-lg text-[#4e684b]">Camila Fernández Zeballos</p>
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  document.addEventListener("DOMContentLoaded", () => {
+    // Estado inicial para ambos elementos
+    gsap.set("#titulo-padres", { opacity: 0, y: 30 });
+    gsap.set("#nombres-padres", { opacity: 0, y: 30 });
+
+    // Animación del título
+    gsap.to("#titulo-padres", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#titulo-padres",
+        start: "top 85%",
+        end: "top 20%",
+        toggleActions: "play none none reverse",
+        onEnter: () => {
+          console.log("👨‍👩‍👧 Título Padres aparece");
+        },
+        onLeaveBack: () => {
+          console.log("👨‍👩‍👧 Título Padres desaparece");
+          gsap.set("#titulo-padres", { opacity: 0, y: 30 });
+        },
+      },
+    });
+
+    // Animación de los nombres (con delay para efecto escalonado)
+    gsap.to("#nombres-padres", {
+      opacity: 1,
+      y: 0,
+      duration: 1,
+      delay: 0.3, // 👈 aparece un poco después del título
+      ease: "power2.out",
+      scrollTrigger: {
+        trigger: "#nombres-padres",
+        start: "top 85%",
+        end: "top 20%",
+        toggleActions: "play none none reverse",
+        onEnter: () => {
+          console.log("👨‍👩‍👧 Nombres Padres aparecen");
+        },
+        onLeaveBack: () => {
+          console.log("👨‍👩‍👧 Nombres Padres desaparecen");
+          gsap.set("#nombres-padres", { opacity: 0, y: 30 });
+        },
+      },
+    });
+  });
+</script> -->
+
+
+
+---
+// Padres.astro
+---
+
+<section class="py-4 relative">
+  <div class="max-w-5xl mx-auto relative">
+    <!-- Adorno izquierdo - MISMO TAMAÑO QUE CONTADOR -->
+    <div class="absolute left-0 top-0 w-10 md:w-20 lg:w-28  pointer-events-none" id="adorno-izq">
+      <img src="/imagenes/FloresIzquierda.webp" alt="Adorno floral" class="w-full h-full object-contain object-left" />
+    </div>
+
+    <!-- Contenido central -->
+    <div class="max-w-xl mx-auto text-center relative z-10 px-16 md:px-24 lg:px-32">
+      <h2 class="font-charm text-xl text-[#a27735] font-bold mb-4" id="titulo-padres">
+        MIS PADRES
+      </h2>
+      <div class="space-y-2" id="nombres-padres">
+        <p class="font-charm text-lg text-[#95303a]">Daniel Fernández Choque</p>
+        <p class="font-charm text-lg text-[#95303a]">Camila Fernández Zeballos</p>
+      </div>
+    </div>
+
+    <!-- Adorno derecho - MISMO TAMAÑO QUE CONTADOR -->
+    <div class="absolute right-0 top-0 w-10 md:w-20 lg:w-28 pointer-events-none" id="adorno-der">
+      <img src="/imagenes/FloresDerecha.webp" alt="Adorno floral" class="w-full h-full object-contain object-right" />
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (typeof window !== 'undefined') {
+    document.addEventListener("DOMContentLoaded", () => {
+      gsap.set("#titulo-padres", { opacity: 0, y: 30 });
+      gsap.set("#nombres-padres", { opacity: 0, y: 30 });
+      gsap.set("#adorno-izq", { opacity: 0, x: -30 });
+      gsap.set("#adorno-der", { opacity: 0, x: 30 });
+
+      gsap.to("#titulo-padres", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#titulo-padres",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onEnter: () => {
+            console.log("👨‍👩‍👧 Título Padres aparece");
+          },
+          onLeaveBack: () => {
+            console.log("👨‍👩‍👧 Título Padres desaparece");
+            gsap.set("#titulo-padres", { opacity: 0, y: 30 });
+          },
+        },
+      });
+
+      gsap.to("#nombres-padres", {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: 0.3,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#nombres-padres",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onEnter: () => {
+            console.log("👨‍👩‍👧 Nombres Padres aparecen");
+          },
+          onLeaveBack: () => {
+            console.log("👨‍👩‍👧 Nombres Padres desaparecen");
+            gsap.set("#nombres-padres", { opacity: 0, y: 30 });
+          },
+        },
+      });
+
+      gsap.to("#adorno-izq", {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#titulo-padres",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#adorno-izq", { opacity: 0, x: -30 });
+          },
+        },
+      });
+
+      gsap.to("#adorno-der", {
+        opacity: 1,
+        x: 0,
+        duration: 1,
+        delay: 0.2,
+        ease: "power2.out",
+        scrollTrigger: {
+          trigger: "#titulo-padres",
+          start: "top 85%",
+          end: "top 20%",
+          toggleActions: "play none none reverse",
+          onLeaveBack: () => {
+            gsap.set("#adorno-der", { opacity: 0, x: 30 });
+          },
+        },
+      });
+    });
+  }
+</script>

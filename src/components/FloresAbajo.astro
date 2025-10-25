@@ -1,0 +1,189 @@
+---
+// Final.astro
+---
+
+<section class="relative w-full overflow-hidden">
+  
+  <!-- CONTENEDOR DE MARIPOSAS FLOTANTES -->
+  <div class="relative w-full h-32 md:h-40 lg:h-48" id="mariposas-final">
+    
+    <!-- Mariposa 1 - Izquierda -->
+    <div class="absolute left-[10%] top-[20%] mariposa-flotante" id="mariposa-final-1">
+      <img
+        src="/gif/MariposaRoja.gif"
+        alt="Mariposa"
+        class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain opacity-80"
+      />
+    </div>
+
+    <!-- Mariposa 2 - Centro izquierda -->
+    <div class="absolute left-[25%] top-[50%] mariposa-flotante" id="mariposa-final-2">
+      <img
+        src="/gif/MariposaRoja.gif"
+        alt="Mariposa"
+        class="w-8 h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain opacity-70 scale-x-[-1]"
+      />
+    </div>
+
+    <!-- Mariposa 3 - Centro -->
+    <div class="absolute left-1/2 -translate-x-1/2 top-[30%] mariposa-flotante" id="mariposa-final-3">
+      <img
+        src="/gif/MariposaRoja.gif"
+        alt="Mariposa"
+        class="w-12 h-12 md:w-14 md:h-14 lg:w-16 lg:h-16 object-contain opacity-90"
+      />
+    </div>
+
+    <!-- Mariposa 4 - Centro derecha -->
+    <div class="absolute right-[25%] top-[45%] mariposa-flotante" id="mariposa-final-4">
+      <img
+        src="/gif/MariposaRoja.gif"
+        alt="Mariposa"
+        class="w-9 h-9 md:w-11 md:h-11 lg:w-13 lg:h-13 object-contain opacity-75"
+      />
+    </div>
+
+    <!-- Mariposa 5 - Derecha -->
+    <div class="absolute right-[10%] top-[25%] mariposa-flotante" id="mariposa-final-5">
+      <img
+        src="/gif/MariposaRoja.gif"
+        alt="Mariposa"
+        class="w-10 h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain opacity-80 scale-x-[-1]"
+      />
+    </div>
+
+  </div>
+
+  <!-- ===== FLORES ABAJO - FULL WIDTH VOLTEADAS ===== -->
+  <div class="relative w-full" id="flores-final">
+    <img
+      src="/imagenes/FloresArriba.webp"
+      alt="Flores decorativas finales"
+      class="w-full h-auto object-cover object-center block rotate-180"
+    />
+  </div>
+
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (typeof window !== 'undefined') {
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("🦋 Iniciando sección final...");
+
+      // 🎯 ESTADO INICIAL
+      gsap.set("#flores-final", { opacity: 0, y: 50 });
+      gsap.set(".mariposa-flotante", { opacity: 0, scale: 0.5, y: -30 });
+
+      // ✨ ANIMACIÓN DE ENTRADA
+      const tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: "#flores-final",
+          start: "top 100%",
+          end: "top 30%",
+          toggleActions: "play none none reverse",
+        },
+      });
+
+      // 1. Mariposas aparecen volando desde arriba
+      tl.to(".mariposa-flotante", {
+        opacity: 1,
+        scale: 1,
+        y: 0,
+        duration: 1.5,
+        ease: "power2.out",
+        stagger: 0.2,
+      })
+
+      // 2. Flores aparecen desde abajo
+      .to("#flores-final", {
+        opacity: 1,
+        y: 0,
+        duration: 1.2,
+        ease: "power2.out",
+      }, "-=0.8");
+
+      // 🦋 ANIMACIONES CONTINUAS DE MARIPOSAS
+
+      // Mariposa 1 - Movimiento suave
+      gsap.to("#mariposa-final-1", {
+        y: -15,
+        x: 10,
+        rotation: 5,
+        duration: 3,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 1,
+      });
+
+      // Mariposa 2 - Movimiento ondulante
+      gsap.to("#mariposa-final-2", {
+        y: -20,
+        x: -8,
+        rotation: -3,
+        duration: 3.5,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 1.3,
+      });
+
+      // Mariposa 3 - Movimiento circular
+      gsap.to("#mariposa-final-3", {
+        y: -18,
+        x: 5,
+        rotation: 8,
+        duration: 4,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 1.6,
+      });
+
+      // Mariposa 4 - Movimiento suave
+      gsap.to("#mariposa-final-4", {
+        y: -12,
+        x: 12,
+        rotation: -5,
+        duration: 3.2,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 1.9,
+      });
+
+      // Mariposa 5 - Movimiento elegante
+      gsap.to("#mariposa-final-5", {
+        y: -16,
+        x: -10,
+        rotation: 4,
+        duration: 3.8,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 2.2,
+      });
+
+      console.log("🦋✨ ¡Sección final activada!");
+    });
+  }
+</script>
+
+<style>
+  /* Asegurar que las mariposas tengan un movimiento fluido */
+  .mariposa-flotante {
+    will-change: transform;
+    transition: all 0.3s ease;
+  }
+
+  /* Hover en las mariposas */
+  .mariposa-flotante:hover {
+    transform: scale(1.1) !important;
+    filter: brightness(1.2);
+  }
+</style>

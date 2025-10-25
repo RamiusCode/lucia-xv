@@ -1,0 +1,246 @@
+---
+// Contador.astro
+---
+
+<section class="py-6 relative overflow-hidden">
+  <!-- Fondo muy sutil -->
+  <div class="absolute inset-0 bg-gradient-to-b from-[#fffaf5]/30 via-transparent to-[#fff5f5]/30 z-0"></div>
+
+  <div class="max-w-5xl mx-auto relative">
+    
+    <!-- 🌸 FLORES LATERALES IZQUIERDA - PEGADAS AL BORDE -->
+    <div class="absolute left-0 top-0 w-12 md:w-20 lg:w-28 h-full pointer-events-none z-10" id="flor-lateral-izq">
+      <img src="/imagenes/FloresIzquierda.webp" alt="Flores izquierda" class="w-full h-full object-contain object-left opacity-90" />
+    </div>
+
+    <!-- 🌸 FLORES LATERALES DERECHA - PEGADAS AL BORDE -->
+    <div class="absolute right-0 top-0 w-12 md:w-20 lg:w-28 h-full pointer-events-none z-10" id="flor-lateral-der">
+      <img src="/imagenes/FloresDerecha.webp" alt="Flores derecha" class="w-full h-full object-contain object-right opacity-90" />
+    </div>
+
+    <!-- CONTENIDO CENTRAL -->
+    <div class="max-w-2xl mx-auto text-center relative z-20 px-16 md:px-24 lg:px-32">
+
+      <!-- ⏰ CONTADOR MEJORADO Y ELEGANTE -->
+      <div class="relative" id="contador-container">
+        
+        <!-- Grid del contador -->
+        <div class="flex items-center justify-center gap-1 sm:gap-2 md:gap-3">
+          
+          <!-- DÍAS -->
+          <div class="flex flex-col items-center grupo-numero">
+            <div class="relative">
+              <!-- Aura de luz sutil -->
+              <div class="absolute inset-0 bg-gradient-to-br from-[#a27735]/10 to-transparent rounded-lg blur-md"></div>
+              
+              <div class="relative font-charm text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none numero-elegante" id="dias">00</div>
+            </div>
+            <div class="text-[10px] sm:text-xs md:text-sm text-[#95303a] uppercase tracking-widest font-charm mt-2 font-semibold opacity-80">Días</div>
+          </div>
+
+          <!-- Separador mejorado -->
+          <div class="flex flex-col items-center gap-1.5 mb-8 separador-elegante">
+            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#a27735] to-[#c9a55e] shadow-sm"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#a27735] to-[#c9a55e] shadow-sm"></div>
+          </div>
+
+          <!-- HORAS -->
+          <div class="flex flex-col items-center grupo-numero">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#a27735]/10 to-transparent rounded-lg blur-md"></div>
+              
+              <div class="relative font-charm text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none numero-elegante" id="horas">00</div>
+            </div>
+            <div class="text-[10px] sm:text-xs md:text-sm text-[#95303a] uppercase tracking-widest font-charm mt-2 font-semibold opacity-80">Horas</div>
+          </div>
+
+          <!-- Separador mejorado -->
+          <div class="flex flex-col items-center gap-1.5 mb-8 separador-elegante">
+            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#a27735] to-[#c9a55e] shadow-sm"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#a27735] to-[#c9a55e] shadow-sm"></div>
+          </div>
+
+          <!-- MINUTOS -->
+          <div class="flex flex-col items-center grupo-numero">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#a27735]/10 to-transparent rounded-lg blur-md"></div>
+              
+              <div class="relative font-charm text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none numero-elegante" id="minutos">00</div>
+            </div>
+            <div class="text-[10px] sm:text-xs md:text-sm text-[#95303a] uppercase tracking-widest font-charm mt-2 font-semibold opacity-80">Minutos</div>
+          </div>
+
+          <!-- Separador mejorado -->
+          <div class="flex flex-col items-center gap-1.5 mb-8 separador-elegante">
+            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#a27735] to-[#c9a55e] shadow-sm"></div>
+            <div class="w-1.5 h-1.5 rounded-full bg-gradient-to-br from-[#a27735] to-[#c9a55e] shadow-sm"></div>
+          </div>
+
+          <!-- SEGUNDOS -->
+          <div class="flex flex-col items-center grupo-numero">
+            <div class="relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-[#a27735]/10 to-transparent rounded-lg blur-md"></div>
+              
+              <div class="relative font-charm text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold leading-none numero-elegante" id="segundos">00</div>
+            </div>
+            <div class="text-[10px] sm:text-xs md:text-sm text-[#95303a] uppercase tracking-widest font-charm mt-2 font-semibold opacity-80">Segundos</div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<script>
+  import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
+
+  gsap.registerPlugin(ScrollTrigger);
+
+  if (typeof window !== 'undefined') {
+    document.addEventListener("DOMContentLoaded", () => {
+      console.log("⏰ Iniciando contador mejorado...");
+
+      // 🎯 FECHA DEL EVENTO: 8 de Noviembre 2025
+      const fechaEvento = new Date("2025-11-08T00:00:00").getTime();
+
+      // ⏰ FUNCIÓN DEL CONTADOR
+      function actualizarContador() {
+        const ahora = new Date().getTime();
+        const diferencia = fechaEvento - ahora;
+
+        if (diferencia > 0) {
+          const dias = Math.floor(diferencia / (1000 * 60 * 60 * 24));
+          const horas = Math.floor((diferencia % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+          const minutos = Math.floor((diferencia % (1000 * 60 * 60)) / (1000 * 60));
+          const segundos = Math.floor((diferencia % (1000 * 60)) / 1000);
+
+          const diasEl = document.getElementById("dias");
+          const horasEl = document.getElementById("horas");
+          const minutosEl = document.getElementById("minutos");
+          const segundosEl = document.getElementById("segundos");
+
+          if (diasEl) diasEl.textContent = String(dias).padStart(2, "0");
+          if (horasEl) horasEl.textContent = String(horas).padStart(2, "0");
+          if (minutosEl) minutosEl.textContent = String(minutos).padStart(2, "0");
+          if (segundosEl) segundosEl.textContent = String(segundos).padStart(2, "0");
+        } else {
+          const diasEl = document.getElementById("dias");
+          const horasEl = document.getElementById("horas");
+          const minutosEl = document.getElementById("minutos");
+          const segundosEl = document.getElementById("segundos");
+
+          if (diasEl) diasEl.textContent = "00";
+          if (horasEl) horasEl.textContent = "00";
+          if (minutosEl) minutosEl.textContent = "00";
+          if (segundosEl) segundosEl.textContent = "00";
+        }
+      }
+
+      actualizarContador();
+      setInterval(actualizarContador, 1000);
+
+      // 🎯 ESTADO INICIAL
+      gsap.set("#flor-lateral-izq", { opacity: 0, x: -50 });
+      gsap.set("#flor-lateral-der", { opacity: 0, x: 50 });
+      gsap.set("#contador-container", { opacity: 0, y: 30 });
+
+      // ✨ ANIMACIONES
+      ScrollTrigger.create({
+        trigger: "#contador-container",
+        start: "top 85%",
+        end: "top 20%",
+        onEnter: () => {
+          const tl = gsap.timeline();
+
+          // Contador
+          tl.to("#contador-container", {
+            opacity: 1,
+            y: 0,
+            duration: 1.2,
+            ease: "back.out(1.4)",
+          })
+
+          // Flores laterales
+          .to("#flor-lateral-izq, #flor-lateral-der", {
+            opacity: 0.9,
+            x: 0,
+            duration: 1.5,
+            ease: "power2.out",
+          }, "-=0.7");
+        },
+        onLeaveBack: () => {
+          gsap.set("#flor-lateral-izq", { opacity: 0, x: -50 });
+          gsap.set("#flor-lateral-der", { opacity: 0, x: 50 });
+          gsap.set("#contador-container", { opacity: 0, y: 30 });
+        },
+      });
+
+      // 🌸 ANIMACIONES CONTINUAS MUY SUAVES
+      
+      // Flores balanceándose
+      gsap.to("#flor-lateral-izq, #flor-lateral-der", {
+        y: -8,
+        duration: 4,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        delay: 2,
+      });
+
+      // Separadores pulsando suavemente
+      gsap.to(".separador-elegante", {
+        scale: 1.2,
+        opacity: 0.7,
+        duration: 2,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.3,
+      });
+
+      // Números con brillo muy sutil
+      gsap.to(".numero-elegante", {
+        textShadow: "0 0 20px rgba(162, 119, 53, 0.3)",
+        duration: 3,
+        ease: "sine.inOut",
+        yoyo: true,
+        repeat: -1,
+        stagger: 0.5,
+      });
+
+      console.log("⏰✨ ¡Contador mejorado activado!");
+    });
+  }
+</script>
+
+<style>
+  /* Números con gradiente dorado sutil */
+  .numero-elegante {
+    background: linear-gradient(135deg, #a27735 0%, #c9a55e 50%, #a27735 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 2px 4px rgba(162, 119, 53, 0.15));
+    transition: all 0.3s ease;
+  }
+
+  /* Hover en los grupos de números */
+  .grupo-numero:hover .numero-elegante {
+    transform: scale(1.05);
+    filter: drop-shadow(0 4px 8px rgba(162, 119, 53, 0.25));
+  }
+
+  /* Separadores con animación */
+  .separador-elegante {
+    opacity: 0.6;
+    transition: all 0.3s ease;
+  }
+
+  .separador-elegante:hover {
+    opacity: 1;
+  }
+</style>
