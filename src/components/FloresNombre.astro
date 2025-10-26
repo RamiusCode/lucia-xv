@@ -1,17 +1,18 @@
-<section class="relative bg-white text-black w-full">
+<section class="relative bg-white text-black w-full overflow-x-hidden">
 
   <!-- ===== FLORES ARRIBA - FULL WIDTH ===== -->
-  <div class="relative w-full" id="flores-arriba">
+  <div class="relative w-full overflow-hidden" id="flores-arriba-hero" style="opacity: 1 !important;">
     <img
       src="/imagenes/FloresArriba.webp"
       alt="Flores decorativas"
       class="w-full h-auto object-cover object-center block"
+      style="opacity: 1 !important;"
     />
 
     <!-- CORONA CENTRADA SOBRE LAS FLORES -->
     <div
       class="absolute left-1/2 transform -translate-x-1/2 top-[100px] sm:top-16 md:top-12 lg:top-8 xl:top-4 z-50"
-      id="corona"
+      id="corona-hero"
     >
       <img
         src="/imagenes/Corona.webp"
@@ -21,68 +22,68 @@
     </div>
   </div>
 
-  <!-- ===== CONTENIDO CENTRAL - CAMBIO: QUITÉ ABSOLUTE ===== -->
-  <div class="relative w-full  sm:pt-40 md:pt-48">
+  <!-- ===== CONTENIDO CENTRAL ===== -->
+  <div class="relative w-full overflow-x-hidden sm:pt-40 md:pt-48 px-2 sm:px-4">
     <div class="flex justify-center w-full">
       <div class="text-center z-10 max-w-4xl w-full">
 
         <!-- TEXTO: MIS XV AÑOS -->
-        <div class="relative text-center z-30 mb-8 w-full" id="titulo-container">
+        <div class="relative text-center z-30 mb-8 w-full px-2" id="titulo-container-hero">
           <h1
-            class="font-crimson text-2xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#95303a] font-bold tracking-wider whitespace-nowrap"
-            id="titulo"
+            class="font-crimson text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl text-[#95303a] font-bold tracking-wider"
+            id="titulo-hero"
           >
-            MIS XV AÑOS perfecto
+            MIS XV AÑOS
           </h1>
         </div>
 
         <!-- NOMBRE CON MARIPOSAS A LOS LADOS -->
         <div
-          class="flex items-center justify-center gap-8 sm:gap-16 md:gap-24 lg:gap-32 px-4 mb-12"
-          id="nombre-container"
+          class="flex items-center justify-center gap-2 sm:gap-8 md:gap-16 lg:gap-24 mb-8 w-full px-2"
+          id="nombre-container-hero"
         >
           <!-- MARIPOSA IZQUIERDA -->
-          <div id="mariposa-izq" class="flex-shrink-0">
+          <div id="mariposa-izq-hero" class="flex-shrink-0">
             <img
               src="/gif/MariposaRoja.gif"
               alt="Mariposa izquierda"
-              class="w-12 h-auto sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain"
+              class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain"
             />
           </div>
 
           <!-- NOMBRE -->
           <h2
-            class="font-great-vibes text-7xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl text-[#a27735] tracking-wide whitespace-nowrap"
-            id="nombre-typewriter"
+            class="font-great-vibes text-5xl sm:text-6xl md:text-7xl lg:text-8xl text-[#a27735] tracking-wide flex-shrink min-w-0"
+            id="nombre-typewriter-hero"
           ></h2>
 
           <!-- MARIPOSA DERECHA -->
-          <div id="mariposa-der" class="flex-shrink-0">
+          <div id="mariposa-der-hero" class="flex-shrink-0">
             <img
               src="/gif/MariposaRoja.gif"
               alt="Mariposa derecha"
-              class="w-12 h-auto sm:w-8 sm:h-8 md:w-10 md:h-10 lg:w-12 lg:h-12 object-contain scale-x-[-1]"
+              class="w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 lg:w-14 lg:h-14 object-contain scale-x-[-1]"
             />
           </div>
         </div>
 
         <!-- ===== IMAGEN PRINCIPAL CON FLORES LATERALES ===== -->
-        <div class="relative w-full" id="foto-container">
-          <!-- FLORES IZQUIERDA - MÁS ABAJO -->
-          <div id="flores-foto-izq" class="absolute left-0 top-48 sm:top-40 md:top-32 lg:top-24 flex-shrink-0 z-30">
+        <div class="relative w-full overflow-visible px-2" id="foto-container-hero">
+          <!-- FLORES IZQUIERDA -->
+          <div id="flores-foto-izq-hero" class="absolute left-0 sm:left-2 top-32 sm:top-40 md:top-32 lg:top-24 flex-shrink-0 z-30">
             <img
               src="/imagenes/FloresIzquierda.webp"
               alt="Flores izquierda"
-              class="w-12 h-auto sm:w-12 md:w-16 lg:w-20 object-contain"
+              class="w-10 h-auto sm:w-12 md:w-16 lg:w-20 object-contain"
             />
           </div>
 
-          <!-- FLORES DERECHA - MÁS ABAJO -->
-          <div id="flores-foto-der" class="absolute right-0 top-48 sm:top-40 md:top-32 lg:top-24 flex-shrink-0 z-30">
+          <!-- FLORES DERECHA -->
+          <div id="flores-foto-der-hero" class="absolute right-0 sm:right-2 top-32 sm:top-40 md:top-32 lg:top-24 flex-shrink-0 z-30">
             <img
               src="/imagenes/FloresDerecha.webp"
               alt="Flores derecha"
-              class="w-12 h-auto sm:w-12 md:w-16 lg:w-20 object-contain"
+              class="w-10 h-auto sm:w-12 md:w-16 lg:w-20 object-contain"
             />
           </div>
 
@@ -91,8 +92,8 @@
             <img
               src="/imagenes/xv.webp"
               alt="Foto de quinceañera"
-              class="w-[70vw] max-w-none h-auto sm:w-[95vw] md:w-[85vw] lg:w-[70vw] xl:w-[55vw] object-contain"
-              id="foto-quinceañera"
+              class="w-full max-w-[90vw] sm:max-w-[80vw] md:max-w-[70vw] lg:max-w-[60vw] xl:max-w-[50vw] h-auto object-contain"
+              id="foto-quinceañera-hero"
             />
           </div>
         </div>
@@ -106,40 +107,65 @@
 <!-- ===== ANIMACIONES GSAP ===== -->
 <script>
   import { gsap } from "gsap";
+  import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-  document.addEventListener("DOMContentLoaded", () => {
-    console.log("Iniciando animaciones...");
+  gsap.registerPlugin(ScrollTrigger);
 
-    // FLORES ARRIBA - Fade in
-    gsap.fromTo(
-      "#flores-arriba",
-      { opacity: 0 },
-      { opacity: 1, duration: 1, ease: "power2.out" }
-    );
+  let heroScrollTrigger = null;
+  let butterflyAnimations: gsap.core.Tween[] = [];
+
+  // Detectar móvil
+  const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+
+  // Configuración para móviles
+  if (isMobile) {
+    ScrollTrigger.config({
+      autoRefreshEvents: "visibilitychange,DOMContentLoaded,load,resize",
+      ignoreMobileResize: true
+    });
+  }
+
+  function initHeroAnimations() {
+    console.log("✨ Iniciando animaciones del Hero...");
+
+    // Destruir animaciones anteriores si existen
+    if (heroScrollTrigger) {
+      heroScrollTrigger.kill();
+    }
+    
+    butterflyAnimations.forEach(anim => {
+      if (anim && anim.kill) {
+        anim.kill();
+      }
+    });
+    butterflyAnimations = [];
+
+    // Forzar opacidad completa en flores superiores
+    gsap.set("#flores-arriba-hero", { clearProps: "all" });
 
     // CORONA - Zoom in
     gsap.fromTo(
-      "#corona",
+      "#corona-hero",
       { opacity: 0, scale: 0.5 },
       { opacity: 1, scale: 1, duration: 1.2, ease: "back.out(1.2)", delay: 0.3 }
     );
 
     // TÍTULO - Fade in de arriba
     gsap.fromTo(
-      "#titulo",
+      "#titulo-hero",
       { opacity: 0, y: 30 },
       { opacity: 1, y: 0, duration: 1, ease: "power2.out", delay: 0.5 }
     );
 
     // MARIPOSA IZQUIERDA - Llega de la izquierda
     gsap.fromTo(
-      "#mariposa-izq",
+      "#mariposa-izq-hero",
       { opacity: 0, x: -50, y: 20, rotation: -15, scale: 0.8 },
       { opacity: 1, x: 0, y: 0, rotation: 0, scale: 1, duration: 4, ease: "power2.out" }
     );
 
     // MARIPOSA IZQUIERDA - Flotado con movimiento elegante
-    gsap.to("#mariposa-izq", {
+    const anim1 = gsap.to("#mariposa-izq-hero", {
       y: -12,
       rotation: 3,
       duration: 3,
@@ -148,8 +174,9 @@
       repeat: -1,
       delay: 1.5
     });
+    butterflyAnimations.push(anim1);
 
-    gsap.to("#mariposa-izq", {
+    const anim2 = gsap.to("#mariposa-izq-hero", {
       x: 10,
       duration: 4,
       ease: "sine.inOut",
@@ -157,16 +184,17 @@
       repeat: -1,
       delay: 1.5
     });
+    butterflyAnimations.push(anim2);
 
     // MARIPOSA DERECHA - Llega de la derecha
     gsap.fromTo(
-      "#mariposa-der",
+      "#mariposa-der-hero",
       { opacity: 0, x: 50, y: 20, rotation: 15, scale: 0.8 },
       { opacity: 1, x: 0, y: 0, rotation: 0, scale: 1, duration: 4, ease: "power2.out" }
     );
 
     // MARIPOSA DERECHA - Flotado con movimiento elegante
-    gsap.to("#mariposa-der", {
+    const anim3 = gsap.to("#mariposa-der-hero", {
       y: -12,
       rotation: -3,
       duration: 3,
@@ -175,8 +203,9 @@
       repeat: -1,
       delay: 1.5
     });
+    butterflyAnimations.push(anim3);
 
-    gsap.to("#mariposa-der", {
+    const anim4 = gsap.to("#mariposa-der-hero", {
       x: -10,
       duration: 4,
       ease: "sine.inOut",
@@ -184,17 +213,18 @@
       repeat: -1,
       delay: 1.5
     });
+    butterflyAnimations.push(anim4);
 
     // FLORES IZQUIERDA - Salen de la izquierda
     gsap.fromTo(
-      "#flores-foto-izq",
+      "#flores-foto-izq-hero",
       { opacity: 0, x: -150 },
       { opacity: 1, x: 0, duration: 1.5, ease: "power2.out", delay: 0.7 }
     );
 
     // FLORES DERECHA - Salen de la derecha
     gsap.fromTo(
-      "#flores-foto-der",
+      "#flores-foto-der-hero",
       { opacity: 0, x: 150 },
       { opacity: 1, x: 0, duration: 1.5, ease: "power2.out", delay: 0.7 }
     );
@@ -202,15 +232,14 @@
     // NOMBRE - Efecto cascada letra por letra
     function nombreCascadaElegante() {
       const texto = "Lucia";
-      const contenedor = document.getElementById("nombre-typewriter");
+      const contenedor = document.getElementById("nombre-typewriter-hero");
       if (!contenedor) return;
 
       contenedor.innerHTML = texto
         .split("")
         .map(
           (letra, index) =>
-            `<span class="letra-cascada" style="
-                --i: ${index};
+            `<span class="letra-cascada-hero" style="
                 opacity: 0; 
                 display: inline-block; 
                 transform: translateY(30px) scale(0.8);
@@ -219,7 +248,7 @@
         )
         .join("");
 
-      gsap.to(".letra-cascada", {
+      gsap.to(".letra-cascada-hero", {
         opacity: 1,
         y: 0,
         scale: 1,
@@ -232,25 +261,64 @@
 
     // IMAGEN PRINCIPAL - Fade in con zoom
     gsap.fromTo(
-      "#foto-container",
+      "#foto-container-hero",
       { opacity: 0, scale: 0.8, y: 30 },
       { opacity: 1, scale: 1, y: 0, duration: 1.2, ease: "power2.out" }
     );
 
     nombreCascadaElegante();
-    console.log("Animaciones listas!");
+    console.log("✨ Animaciones del Hero listas!");
+  }
+
+  // INICIALIZACIÓN CON MÚLTIPLES EVENTOS
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initHeroAnimations);
+  } else {
+    initHeroAnimations();
+  }
+
+  // Refresh después de que todo cargue
+  window.addEventListener('load', () => {
+    setTimeout(() => {
+      ScrollTrigger.refresh();
+      console.log("🔄 ScrollTrigger refreshed - Hero");
+    }, 100);
+  });
+
+  // Cleanup al salir
+  window.addEventListener('beforeunload', () => {
+    if (heroScrollTrigger) {
+      heroScrollTrigger.kill();
+    }
+    butterflyAnimations.forEach(anim => {
+      if (anim && anim.kill) {
+        anim.kill();
+      }
+    });
   });
 </script>
 
 <style>
-  .letra-cascada {
+  /* Forzar opacidad completa en flores superiores */
+  #flores-arriba-hero,
+  #flores-arriba-hero img {
+    opacity: 1 !important;
+  }
+
+  .letra-cascada-hero {
     transition: all 0.3s ease;
     will-change: transform, opacity, filter;
     position: relative;
   }
 
-  .letra-cascada:hover {
+  .letra-cascada-hero:hover {
     transform: translateY(-3px) scale(1.05) !important;
-    text-shadow: 0 0 12px rgba(78, 104, 75, 0.5) !important;
+    text-shadow: 0 0 12px rgba(162, 119, 53, 0.5) !important;
+  }
+
+  /* Prevenir scroll horizontal */
+  section {
+    max-width: 100vw;
+    overflow-x: hidden;
   }
 </style>
