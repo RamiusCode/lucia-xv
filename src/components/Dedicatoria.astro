@@ -1,7 +1,6 @@
 <section class="py-8 px-4 relative">
   <div class="max-w-3xl mx-auto">
     
-    <!-- 🌹 FLORES ARRIBA -->
     <div class="flex justify-center mb-3" id="flores-arriba-ded">
       <img
         src="/imagenes/FlorArribaSeparador.webp"
@@ -10,7 +9,6 @@
       />
     </div>
 
-    <!-- TEXTO DEDICATORIA -->
     <div class="text-center px-4">
       <h2
         class="font-charm text-lg sm:text-xl md:text-2xl text-[#95303a] leading-relaxed"
@@ -22,7 +20,6 @@
       </h2>
     </div>
 
-    <!-- 🌹 FLORES ABAJO -->
     <div class="flex justify-center mt-3" id="flores-abajo-ded">
       <img
         src="/imagenes/FloresAbajoSeparador.webp"
@@ -44,6 +41,7 @@
     console.log("💐 Iniciando animaciones de dedicatoria...");
 
     // Estado inicial - Todo oculto
+    // Las flores de arriba se van hacia arriba (-30), el texto y las flores de abajo hacia abajo (+30)
     gsap.set("#flores-arriba-ded", { opacity: 0, y: -30 });
     gsap.set("#texto-ded", { opacity: 0, y: 30 });
     gsap.set("#flores-abajo-ded", { opacity: 0, y: 30 });
@@ -51,8 +49,8 @@
     // ScrollTrigger con entrada y salida
     ScrollTrigger.create({
       trigger: "#texto-ded",
-      start: "top 100%",
-      end: "top 20%",
+      start: "top 100%", // Cuando el trigger toca el borde inferior de la ventana
+      end: "top 20%", // Desaparece cuando el trigger llega al 20% superior de la ventana
       
       onEnter: () => {
         console.log("💐 Dedicatoria apareciendo...");
@@ -65,34 +63,34 @@
       },
     });
 
-    // ANIMACIÓN DE ENTRADA (cuando aparece)
+    // ANIMACIÓN DE ENTRADA (ahora todos al mismo tiempo)
     function animarEntrada() {
       const tl = gsap.timeline();
 
-      // Flores arriba primero
+      // INICIAMOS LA ANIMACIÓN DE LA FLOR SUPERIOR
       tl.to("#flores-arriba-ded", {
         opacity: 1,
         y: 0,
         duration: 0.8,
         ease: "power2.out",
       })
-      // Texto después
+      // AL MISMO TIEMPO (usando "<") animamos el TEXTO
       .to("#texto-ded", {
         opacity: 1,
         y: 0,
         duration: 1,
         ease: "power2.out",
-      }, "-=0.4")
-      // Flores abajo al final
+      }, "<") // <-- ¡CLAVE! Esto hace que inicie al mismo tiempo que la animación anterior.
+      // AL MISMO TIEMPO (usando "<") animamos la FLOR INFERIOR
       .to("#flores-abajo-ded", {
         opacity: 1,
         y: 0,
         duration: 0.8,
         ease: "power2.out",
-      }, "-=0.6");
+      }, "<"); // <-- ¡CLAVE! Esto hace que inicie al mismo tiempo que la animación anterior.
     }
 
-    // ANIMACIÓN DE SALIDA (cuando desaparece al subir)
+    // ANIMACIÓN DE SALIDA (se mantiene secuencial como estaba, desapareciendo de abajo hacia arriba)
     function animarSalida() {
       const tl = gsap.timeline();
 
